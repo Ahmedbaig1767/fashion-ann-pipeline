@@ -4,3 +4,4 @@ __pycache__/
 .dvc/cache
 .dvc/tmp
 .dvc/config.local
+/confusion_matrix.png
