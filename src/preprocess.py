@@ -11,8 +11,11 @@ x_train, y_train = data["x_train"], data["y_train"]
 x_test, y_test = data["x_test"], data["y_test"]
 
 # Normalize pixel values to [0, 1]
-x_train = x_train.astype("float32") / 127.5 - 1.0
-x_test = x_test.astype("float32") / 127.5 - 1.0
+x_train = x_train.astype("float32") / 255.0
+x_test = x_test.astype("float32") / 255.0
+mean, std = x_train.mean(), x_train.std()
+x_train = (x_train - mean) / std
+x_test = (x_test - mean) / std
 
 # Split a validation set out of the training data
 x_train, x_val, y_train, y_val = train_test_split(
